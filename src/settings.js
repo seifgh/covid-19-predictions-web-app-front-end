@@ -1,7 +1,7 @@
 
 const DEBUG = false
 
-export const WEB_HOST = DEBUG ? 'localhost:300/':'/';
+export const WEB_HOST = DEBUG ? 'localhost:3000/':'/';
 
 export const WEB_API_HOST = `${WEB_HOST}api/`;
 
@@ -26,6 +26,6 @@ export const ramsisImage =  `${WEB_HOST}static/static/media/ramsis_image.jpeg`;
 export const seifImage =  `${WEB_HOST}static/static/media/seif_image.jpeg`;
 
 
-export const googleTrackingId = "UA-161927570-1-wrong-code";
+export const googleTrackingId = "Wrong-code";
 
 export const DAYS_NUMBER = 92;
