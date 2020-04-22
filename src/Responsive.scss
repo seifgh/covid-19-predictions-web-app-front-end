@@ -1,0 +1,448 @@
+
+@mixin box-shadow( $property ){
+  -webkit-box-shadow: $property;
+  -moz-box-shadow: $property;
+  box-shadow: $property;
+}
+
+
+@mixin breakpoint($point) {
+   @if $point == desktop {
+     @media (max-width: 1200px) { @content ; }
+  }
+   @else if $point == laptop {
+     @media (max-width: 1024px) { @content ; }
+  }
+    @else if $point == tablet {
+     @media (max-width: 768px) { @content ; }
+  }
+   @else if $point == phablet {
+     @media (max-width: 600px)  { @content ; }
+  }
+  @else if $point == mobile {
+     @media (max-width: 480px)  { @content ; }
+
+  }
+  @else if $point == mdMobile {
+     @media (max-width: 320px)  { @content ; }
+
+  }
+}
+
+@include breakpoint(laptop){
+  main{
+    .predictions{
+      .title{
+          font-size: 20px;
+          width: auto;
+        }
+      .top-bar{
+
+      }
+
+      .chart-infos{
+        color: black;
+        position: relative;
+        flex-direction: column;
+        width: 100%;
+        background: white;
+        box-sizing: border-box;
+        padding: 5px;
+        margin: 20px 0;
+
+
+
+        .chart{
+          position:relative;
+          display: block;
+          width: 100%;
+          // height: auto;
+          canvas{
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        .infos{
+          text-decoration: none;
+          color: black;
+          position: relative;
+          width: 100%;
+          padding: 10px;
+          margin: 20px 0 0 0;
+          border-top: 3px solid whitesmoke;
+          box-sizing: border-box;
+
+          canvas{
+            position: relative;
+            display: block;
+            width: 100%;
+          }
+          .info{
+            position: relative;
+            display: block;
+            width: 100%;
+
+            .title{
+              position: relative;
+              display: block;
+              font-size: 14px;
+              font-weight: bold;
+            }
+            .progress-bar{
+              position: relative;
+              display: block;
+              width: 100;
+              margin: 10px 0 20px 0;
+              height: auto;
+            }
+            .progress-full{
+              position: relative;
+              display: block;
+
+              width: 100%;
+              height: 8px;
+              background: whitesmoke;
+              border-radius: 25px;
+            }
+            .progress{
+              position: absolute;
+              display: block;
+              top: 0;
+              width: 100%;
+              height: 8px;
+
+              border-radius: 25px;
+
+              &.bg-alives{
+                background:  #80b6f4;
+              }
+              &.bg-deaths{
+                background: tomato;
+              }
+
+            }
+
+          }
+        }
+
+      }
+    }
+
+
+      .about{
+
+        .developers{
+
+          .dev-card{
+            margin: 10px;
+            width: 250px;
+              // margin: 10px 0;
+              // padding: 10px;
+              // width: calc( 100% - 20px );
+          }
+        }
+
+      }
+  }
+}
+
+@include breakpoint(tablet){
+
+  .App{
+     flex-direction: column;
+     height: auto;
+     padding-bottom: 50px;
+    .cpr{
+      color: black;
+
+    }
+
+    .hash{
+      bottom: 10px;
+      align-items: flex-end;
+      width: calc( 100% - 20px);
+      transition: bottom .3s;
+      &.hide{
+        bottom: -200px;
+      }
+    }
+
+  }
+
+  aside{
+    width: calc( 100% - 20px );
+    height: auto;
+    padding: 5px 10px;
+    overflow: hidden;
+    .icon-menu{
+      display: flex;
+    }
+    .logo{
+      position: relative;
+      width: 100%;
+      box-sizing: border-box;
+      margin: 5px 0 5px 0;
+
+      h1,h3{
+        margin: 0;
+      }
+      h3{
+        display: inline-block;
+        font-size: 12px;
+        margin: 2.5px 0;
+        padding: 5px;
+        color: white;
+
+      }
+      h1{
+
+        font-size: 14px;
+        font-weight: bolder;
+        margin: 0;
+        padding: 5px;
+        color: white;
+      }
+    }
+    .links{
+        height: 0;
+        margin: 0;
+        padding:0;
+        transition: .3s height, .3s margin;
+        .link{
+          display: none;
+        }
+        &.show{
+          margin: 20px 0 20px 0;
+          height: auto;
+          .link{
+            display: flex;
+          }
+        }
+    }
+  }
+  main{
+    height: auto;
+    overflow: hidden;
+    .home{
+      padding: 5px;
+      height: auto;
+
+      flex-direction: row;
+      .image{
+        position: relative;
+        display: block;
+        right: 0;
+        width: 250px;
+        height: auto;
+        overflow: hidden;
+        z-index: 3;
+      }
+      .details{
+          // @include box-shadow(0px 0px 17px -3px rgba(117,117,117,0.14));
+         z-index: 2;
+         width: calc( 100% - 250px);
+         background: white;
+         padding: 0;
+        .title{
+          font-size: 36px;
+        }
+        .paragraph{
+          width: 100%;
+        }
+        .btns{
+          margin: 20px  0 0 0;
+            a{
+              margin-right: 10px;
+              font-size: 18px;
+              padding: 12px;
+            }
+
+        }
+      }
+    }
+
+    .about{
+      align-items: flex-start;
+      justify-content: flex-start;
+
+      .paragraph{
+        width: 100%;
+        text-align: left;
+      }
+
+
+        .developers{
+
+          .dev-card{
+            margin: 10px 0;
+            padding: 10px;
+            width: calc( 100% - 20px );
+          }
+        }
+      }
+  }
+}
+
+@include breakpoint(phablet){
+
+
+  aside{
+    width: calc( 100% - 20px );
+    height: auto;
+  }
+  main{
+    height: auto;
+
+    .home{
+      height: auto;
+      flex-direction: column;
+      .image{
+        position: relative;
+        display: block;
+        right: -200px;
+        top: -80px;
+        height: 200px;
+        overflow: hidden;
+        z-index: 3;
+      }
+      .details{
+        @include box-shadow(0px 0px 17px -3px rgba(117,117,117,0.14));
+         z-index: 2;
+         width: calc( 100% - 20px);
+         padding: 20px;
+        .title{
+          font-size: 30px;
+        }
+        .paragraph{
+          width: 100%;
+
+        }
+      }
+    }
+    .predictions{
+      .title{
+          font-size: 18px;
+          margin-left: 0;
+          text-align: center;
+          width: auto;
+        }
+      .top-bar{
+        margin: 0;
+        .btn-back{
+          display: none;
+        }
+
+      }
+    }
+    .about{
+        .paragraph{
+
+          font-size: 13px;
+        }
+        .sub-title{
+          font-size: 16px;
+
+        }
+        .logos{
+          margin-top: 20px;
+          img{
+
+            width: 190px;
+          }
+        }
+        .developers{
+           flex-direction: column;
+           border-top:none;
+          .dev-card{
+            border-top: 1px solid whitesmoke;
+            margin: 10px 0;
+            padding: 10px;
+            width: calc( 100% - 20px );
+          }
+        }
+
+      }
+  }
+}
+
+@include breakpoint(mobile){
+  .table-3{
+    .line{
+      grid-template-columns: 80px calc( 50% - 40px ) calc( 50% - 40px );
+    }
+  }
+  .App{
+     flex-direction: column;
+     height: auto;
+  }
+
+  aside{
+    width: calc( 100% - 20px );
+    height: auto;
+  }
+  main{
+    height: auto;
+    overflow: hidden;
+    padding: 5px;
+    width: calc(100% - 10px);
+    .home{
+      padding: 5px;
+      height: auto;
+
+      flex-direction: column;
+      .image{
+        position: relative;
+        display: block;
+        top: 0;right: 0;
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        z-index: 3;
+      }
+      .details{
+          @include box-shadow(none);
+         z-index: 2;
+         width: 100%;
+         background: white;
+
+         padding: 10px;
+        .title{
+          font-size: 30px;
+        }
+        .paragraph{
+          font-size: 13px;
+        }
+        .btns{
+            a{
+              margin-right: 10px;
+              font-size: 16px;
+              padding: 10px 8px;
+            }
+
+        }
+      }
+    }
+    .predictions{
+      .details{
+        .rates{
+
+          .card{
+            padding: 10px 10px;
+          }
+        }
+      }
+    }
+
+    .countries{
+      .title{
+        font-size: 30px;
+      }
+      .country-card{
+        margin:10px 5px;
+        width: calc( 100% - 10px );
+      }
+
+    }
+  }
+}
